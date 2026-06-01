@@ -62,5 +62,4 @@ coming soon
 Contributions welcome! Please [write me an e-mail](mailto:szponerzolidev@proton.me) or [open an issue ](https://github.com/SzponerZoli/eduOS/issues/new) first to discuss changes.
 
 ## License
-
-MIT
+Apache 2.0
