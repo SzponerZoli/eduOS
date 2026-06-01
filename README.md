@@ -1,3 +1,4 @@
+ [🇭🇺](./README/README_HUN.md) 
  # eduOS
  a Universal Blue based immutable Linux distribution for use in education.
 
@@ -48,7 +49,7 @@ IT administrators can customize installed Flatpaks via a simple YAML file:
 ```yaml
 extra-flatpaks:
   - org.example.App
-  - hu.example.MasikApp
+  - org.example.App2
 ```
 ## Roadmap
 coming soon
@@ -62,4 +63,5 @@ coming soon
 Contributions welcome! Please [write me an e-mail](mailto:szponerzolidev@proton.me) or [open an issue ](https://github.com/SzponerZoli/eduOS/issues/new) first to discuss changes.
 
 ## License
+
 Apache 2.0

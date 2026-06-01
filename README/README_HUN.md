@@ -51,7 +51,8 @@ extra-flatpaks:
   - org.example.App
   - org.example.App2
 ```
-## Útiterv
+## Roadmap
+
 hamarosan
 
 ## Állapot
