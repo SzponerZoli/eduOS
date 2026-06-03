@@ -1,6 +1,28 @@
 #!/bin/bash
 
 set -ouex pipefail
+
+# Branding
+echo "Branding started"
+BRANDING_DIR="/tmp/build_files/branding"
+
+# Extracting commit hash
+IMAGE_TAG=${IMAGE_TAG:-${GITHUB_SHA:-$(git rev-parse --short HEAD 2>/dev/null || echo "latest")}}
+SHORT_HASH=$(echo "$IMAGE_TAG" | cut -c1-7)
+
+# Replace placeholders with the actual commit hash
+cp "$BRANDING_DIR/os-release" /tmp/os-release.tmp
+sed -i "s/COMMIT_HASH/$SHORT_HASH/g" /tmp/os-release.tmp
+
+# Inject custom os-release file into the system
+if [ -f /usr/lib/os-release ]; then
+    sudo cp /tmp/os-release.tmp /usr/lib/os-release
+    ln -sf /usr/lib/os-release /etc/os-release
+fi
+# Configure GRUB distributor name
+if [ -f /etc/default/grub ]; then
+    sudo sed -i 's/^GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR="eduOS"/' /etc/default/grub
+fi
 # Installing base packages
 dnf5 install -y fastfetch
 dnf5 install -y chromium

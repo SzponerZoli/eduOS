@@ -1,0 +1,17 @@
+NAME="eduOS Linux"
+VERSION="COMMIT_HASH (Stable)"
+RELEASE_TYPE=stable
+ID=eduos
+ID_LIKE="fedora"
+VERSION_ID="COMMIT_HASH"
+PRETTY_NAME="eduOS Linux COMMIT_HASH"
+ANSI_COLOR="38;2;0;95;0"
+LOGO="fedora-logo-icon"
+CPE_NAME="cpe:/o:szponerzoli:eduos:COMMIT_HASH"
+DEFAULT_HOSTNAME="eduos"
+HOME_URL="https://github.com/szponerzoli/eduOS"
+DOCUMENTATION_URL="https://github.com/szponerzoli/eduOS/blob/main/README.md"
+SUPPORT_URL="mailto:szponerzolidev@proton.me"
+BUG_REPORT_URL="https://github.com/szponerzoli/eduOS/issues/new"
+VARIANT="eduOS"
+VARIANT_ID=eduos
