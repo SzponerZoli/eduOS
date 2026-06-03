@@ -15,10 +15,6 @@ echo "Generated Build Version Timestamp: $BUILD_VERSION"
 cp "$BRANDING_DIR/os-release" /var/tmp/os-release.tmp
 sed -i "s/COMMIT_HASH/$BUILD_VERSION/g" /var/tmp/os-release.tmp
 
-# Replace placeholders with the actual commit hash
-cp "$BRANDING_DIR/os-release" /tmp/os-release.tmp
-sed -i "s/COMMIT_HASH/$SHORT_HASH/g" /tmp/os-release.tmp
-
 # Inject custom os-release file into the system
 if [ -f /usr/lib/os-release ]; then
     sudo cp /tmp/os-release.tmp /usr/lib/os-release
