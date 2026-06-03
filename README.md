@@ -26,7 +26,9 @@ Software is delivered via Flatpak, sandboxed and profile-specific. Each machine
 type gets only the software it needs, keeping the system lean on older hardware.
 
 ## I want to try it
-coming soon
+
+1. Install another Atomic Linux distribution like [Aurora](https://getaurora.dev)
+2. Run ```sudo bootc switch ghcr.io/szponerzoli/eduos``` in your terminal
 
 ## Profiles
 
