@@ -4,15 +4,18 @@ set -ouex pipefail
 
 # Branding
 echo "Branding started"
-BRANDING_DIR=""
-if [ -d "/ctx/build_files/branding" ]; then
-    BRANDING_DIR="/ctx/build_files/branding"
-elif [ -d "/tmp/build_files/branding" ]; then
-    BRANDING_DIR="/tmp/build_files/branding"
-elif [ -d "./build_files/branding" ]; then
-    BRANDING_DIR="./build_files/branding"
-elif [ -d "/workspace/build_files/branding" ]; then
-    BRANDING_DIR="/workspace/build_files/branding"
+
+# Search for the branding directory in the file system
+echo "Searching for branding directory..."
+BRANDING_DIR=$(find / -type d -path "*/build_files/branding" 2>/dev/null | head -n 1)
+
+if [ -z "$BRANDING_DIR" ] || [ ! -d "$BRANDING_DIR" ]; then
+    echo "Dumping root context layout to help debug:"
+    ls -la / || true
+    if [ -d /ctx ]; then ls -la /ctx || true; fi
+    
+    echo "ERROR: build_files/branding directory could not be located anywhere in the file system!"
+    exit 1
 fi
 
 # Extracting commit hash
