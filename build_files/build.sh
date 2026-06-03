@@ -5,18 +5,7 @@ set -ouex pipefail
 # Branding
 echo "Branding started"
 
-# Search for the branding directory in the file system
-echo "Searching for branding directory..."
-BRANDING_DIR=$(find / -type d -path "*/build_files/branding" 2>/dev/null | head -n 1)
-
-if [ -z "$BRANDING_DIR" ] || [ ! -d "$BRANDING_DIR" ]; then
-    echo "Dumping root context layout to help debug:"
-    ls -la / || true
-    if [ -d /ctx ]; then ls -la /ctx || true; fi
-    
-    echo "ERROR: build_files/branding directory could not be located anywhere in the file system!"
-    exit 1
-fi
+BRANDING_DIR="/ctx/branding/"
 
 # Extracting commit hash
 IMAGE_TAG=${IMAGE_TAG:-${GITHUB_SHA:-$(git rev-parse --short HEAD 2>/dev/null || echo "latest")}}
