@@ -4,7 +4,16 @@ set -ouex pipefail
 
 # Branding
 echo "Branding started"
-BRANDING_DIR="/tmp/build_files/branding"
+BRANDING_DIR=""
+if [ -d "/ctx/build_files/branding" ]; then
+    BRANDING_DIR="/ctx/build_files/branding"
+elif [ -d "/tmp/build_files/branding" ]; then
+    BRANDING_DIR="/tmp/build_files/branding"
+elif [ -d "./build_files/branding" ]; then
+    BRANDING_DIR="./build_files/branding"
+elif [ -d "/workspace/build_files/branding" ]; then
+    BRANDING_DIR="/workspace/build_files/branding"
+fi
 
 # Extracting commit hash
 IMAGE_TAG=${IMAGE_TAG:-${GITHUB_SHA:-$(git rev-parse --short HEAD 2>/dev/null || echo "latest")}}
