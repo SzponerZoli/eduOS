@@ -8,8 +8,8 @@ echo "Branding started"
 BRANDING_DIR="/ctx/branding/"
 
 # Extracting commit hash
-IMAGE_TAG=${IMAGE_TAG:-${GITHUB_SHA:-$(git rev-parse --short HEAD 2>/dev/null || echo "latest")}}
-SHORT_HASH=$(echo "$IMAGE_TAG" | cut -c1-7)
+COMMIT_HASH="${IMAGE_TAG:-${GITHUB_SHA:-latest}}"
+SHORT_HASH=$(echo "$COMMIT_HASH" | cut -c1-7)
 
 # Replace placeholders with the actual commit hash
 cp "$BRANDING_DIR/os-release" /tmp/os-release.tmp
