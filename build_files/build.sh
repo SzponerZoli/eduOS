@@ -7,9 +7,13 @@ echo "Branding started"
 
 BRANDING_DIR="/ctx/branding/"
 
-# Extracting commit hash
-COMMIT_HASH="${IMAGE_TAG:-${GITHUB_SHA:-latest}}"
-SHORT_HASH=$(echo "$COMMIT_HASH" | cut -c1-7)
+# Generate the Build Timestamp
+BUILD_VERSION=$(date -u +%Y%m%d%H%M)
+echo "Generated Build Version Timestamp: $BUILD_VERSION"
+
+# Replace placeholders with the timestamp
+cp "$BRANDING_DIR/os-release" /var/tmp/os-release.tmp
+sed -i "s/COMMIT_HASH/$BUILD_VERSION/g" /var/tmp/os-release.tmp
 
 # Replace placeholders with the actual commit hash
 cp "$BRANDING_DIR/os-release" /tmp/os-release.tmp
