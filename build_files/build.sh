@@ -12,8 +12,8 @@ BUILD_VERSION=$(date -u +%Y%m%d%H%M)
 echo "Generated Build Version Timestamp: $BUILD_VERSION"
 
 # Replace placeholders with the timestamp
-cp "$BRANDING_DIR/os-release" /var/tmp/os-release.tmp
-sed -i "s/COMMIT_HASH/$BUILD_VERSION/g" /var/tmp/os-release.tmp
+cp "$BRANDING_DIR/os-release" /tmp/os-release.tmp
+sed -i "s/COMMIT_HASH/$BUILD_VERSION/g" /tmp/os-release.tmp
 
 # Inject custom os-release file into the system
 if [ -f /usr/lib/os-release ]; then
