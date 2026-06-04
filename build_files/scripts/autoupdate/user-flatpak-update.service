@@ -1,0 +1,6 @@
+[Unit]
+Description=Update all user flatpaks at login
+
+[Service]
+Type=oneshot
+ExesStart=flatpak update --user -y -noninteractive

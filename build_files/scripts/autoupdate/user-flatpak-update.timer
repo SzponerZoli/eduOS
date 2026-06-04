@@ -1,0 +1,9 @@
+[Unit]
+Description=Run user Flatpak update on login
+
+[Timer]
+OnBootSec=2min
+Persistent=True
+
+[Install]
+WantedBy=default.target
