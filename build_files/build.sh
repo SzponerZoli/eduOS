@@ -26,6 +26,7 @@ SCRIPTS_DIR="/ctx/scripts"
     fi
     echo "Branding Finished"
 # Installing base packages
+    dnf5 clean all # hopefully this fixes the build fail
     dnf5 install -y fastfetch
     dnf5 install -y chromium
     dnf5 install -y kwrite
