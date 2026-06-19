@@ -1,6 +1,6 @@
  [🇭🇺](./README/README_HUN.md) 
  # eduOS
- a Universal Blue based immutable Linux distribution for use in education.
+ a [Universal Blue](https://universal-blue.org/) based immutable Linux distribution for use in education.
 
  ## Why eduOS?
  A lot of schools run outdated computers that are incapable of running Windows 11 where i live (Hungary). eduOS gives you automatic updates, performance and useful software to use in education. eduOS aims to give a free, open-source, easy-to manage alternative.
